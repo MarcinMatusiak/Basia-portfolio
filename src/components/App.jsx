@@ -44,7 +44,7 @@ const categories = [
         id: 'sesje-rodzinne',
         resources: [
         {
-            name: 'Róża, Mikołąj i Marcin',
+            name: 'Róża, Mikołaj i Marcin',
             id: 'mikolaj-roza-marcin',
             url: '/sesje-rodzinne/mikolaj-roza-marcin'
         },
@@ -101,8 +101,7 @@ function Resource({ match }) {
     return (
         <div>
         <h3>{category.name}</h3>
-        <p>{category.description}</p>
-        <a href={category.url}>More info.</a>
+        <a href={category.url}>Zobacz zdjęcia</a>
         </div>
     )
 }
@@ -113,7 +112,6 @@ function Category({ match }) {
     return (
         <div>
         <h2>{category.name}</h2>
-        <p>{category.description}</p>
 
         <ul>
             {category.resources.map((sub) => (
@@ -166,42 +164,7 @@ function Contact() {
 class App extends React.Component {
     constructor (props) {
         super (props);
-        this.state = {
-            tittle: 'Barbara Librowska Fotografia',
-            headerlinks: [
-                { tittle: 'Strona domowa', path: '/'},
-                { tittle: 'Portfolio', path: '/portfolio'},
-                { tittle: 'Cennik', path: '/cennik'},
-                { tittle: 'O mnie', path: '/o-mnie'},
-                { tittle: 'Kontakt', path: '/kontakt'},
-            ],
-            home: {
-                tittle: 'placeholder',
-                subtittle: 'placeholder',
-                text: 'placeholder',
-            },
-            portfolio: {
-                tittle: 'placeholder',
-                subtittle: 'placeholder',
-                text: 'placeholder',
-            },
-            prices: {
-                tittle: 'placeholder',
-                subtittle: 'placeholder',
-                text: 'placeholder',
-            },
-            about: {
-                tittle: 'O mnie',
-                subtittle: 'placeholder',
-                text: 'placeholder',
-            },
-            contact: {
-                tittle: 'Skontaktuj się ze mną',
-                subtittle: 'placeholder',
-                text: 'placeholder',
-            }
-        }
-
+        this.state = {}
     }
 
     render() {
