@@ -10,7 +10,8 @@ import About from './About';
 import Contact from './Contact';
 import Home from './Home';
 import Prices from './Prices';
-import { Categories } from './Categories';
+import Categories from './Categories';
+import Resource from './Resource';
 
 class App extends React.Component {
   constructor (props) {
@@ -20,24 +21,26 @@ class App extends React.Component {
 
   render () {
     return (
-      <Router>
-        <nav>
-          <ul>
-            <li><Link to='/'>Strona domowa</Link></li>
-            <li><Link to='/portfolio'>Portfolio</Link></li>
-            <Route path='/portfolio' component={Categories} />
-            <li><Link to='/cennik'>Cennik</Link></li>
-            <li><Link to='/o-mnie'>O mnie</Link></li>
-            <li><Link to='/kontakt'>Kontakt</Link></li>
+      <>
+        <Router>
+          <nav>
+            <ul>
+              <li><Link to='/'>Strona domowa</Link></li>
+              <li><Link to='/portfolio'>Portfolio</Link></li>
+              <Route path='/portfolio' component={Categories} />
+              <li><Link to='/cennik'>Cennik</Link></li>
+              <li><Link to='/o-mnie'>O mnie</Link></li>
+              <li><Link to='/kontakt'>Kontakt</Link></li>
+            </ul>
 
-          </ul>
-
-          <Route exact path='/' component={Home} />
-          <Route path='/cennik' component={Prices} />
-          <Route path='/o-mnie' component={About} />
-          <Route path='/kontakt' component={Contact} />
-        </nav>
-      </Router>
+            <Route exact path='/' component={Home} />
+            <Route path='/cennik' component={Prices} />
+            <Route path='/o-mnie' component={About} />
+            <Route path='/kontakt' component={Contact} />
+          </nav>
+        </Router>
+        <Resource />
+      </>
     );
   }
 }
