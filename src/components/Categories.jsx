@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import { categories } from '../json/categories';
@@ -14,40 +14,37 @@ export function Categories ({ match }) {
         ))}
       </ul>
 
-      <Route path={`${match.path}/:categoryId`} component={Category}>
-        {({ match }) => (
-          <Category match={match} />
-        )}
+      <Route path={`${match.path}/:categoryId`}>
+        {({ match }) => {
+          if (!match) {
+            return null;
+          }
+
+          return <Category match={match} categories={categories} />;
+        }}
       </Route>
     </div>
   );
 }
 
-export function Category ({ match }) {
+function Category ({ match }) {
   const category = categories.find(({ id }) => id === match.params.categoryId);
 
   return (
     <div>
       <ul>
-        {category.resources.map((sub) => (
-          <li key={sub.id}>
-            <Link to={`${match.url}/${sub.id}`}>{sub.name}</Link>
+        {category.resources.map((subcat) => (
+          <li key={subcat.id}>
+            <Link to={`${match.url}/${subcat.id}`}>{subcat.name}</Link>
           </li>
         ))}
       </ul>
 
-      <Route path={`${match.path}/:subId`} component={Resource} />
+      <Route path={`${match.path}/:subcatId`} component={Resource} />
     </div>
   );
 }
 
 function Resource ({ match }) {
-  const category = categories.find(({ id }) => id === match.params.categoryId)
-    .resources.find(({ id }) => id === match.params.subId);
-
-  return (
-    <div>
-      <a href={category.url}>Zobacz zdjęcia</a>
-    </div>
-  );
+  return <h2>Zdjęcia</h2>;
 }
