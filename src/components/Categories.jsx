@@ -12,7 +12,7 @@ export default function Categories () {
 }
 
 function Category ({ name, id, resources }) {
-  const { url, path } = useRouteMatch();
+  const { url } = useRouteMatch();
   return (
     <li>
       <Link to={`${url}/${id}`}>{name}</Link>
@@ -25,7 +25,6 @@ function Category ({ name, id, resources }) {
           ))}
         </ul>
       </Route>
-      <Route path={`${path}/${id}/:resId`} />
     </li>
   );
 }

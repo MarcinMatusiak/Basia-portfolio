@@ -68,7 +68,7 @@ const categories = [
         id: 'roza'
       },
       {
-        name: 'Mikołąj',
+        name: 'Mikołaj',
         id: 'mikolaj'
       }
     ]
