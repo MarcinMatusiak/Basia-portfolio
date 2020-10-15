@@ -8,8 +8,11 @@ const getResource = (category, resource) => {
     .resources
     .find(({ id }) => id === resource);
 };
-export default function Resource ({ match: { params: { categoryId, resourceId } } }) {
-  console.log('dupa');
+export default function Resource ({
+  match: {
+    params: { categoryId, resourceId }
+  }
+}) {
   const resource = getResource(categoryId, resourceId);
 
   return (

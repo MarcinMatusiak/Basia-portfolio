@@ -39,9 +39,7 @@ class App extends React.Component {
           <Route path={PATHS.CONTACT} component={Contact} />
         </nav>
 
-        <Route path={PATHS.RESOURCE}>
-          <Resource />
-        </Route>
+        <Route path={PATHS.RESOURCE} component={Resource} />
       </Router>
     );
   }
