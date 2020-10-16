@@ -4,7 +4,7 @@
 
 #Config
 
-backend/config
+backend/config/
 
 ### react ###
 .DS_*
