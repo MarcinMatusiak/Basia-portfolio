@@ -9,8 +9,26 @@ import PATHS from '../paths';
 class App extends React.Component {
   constructor (props) {
     super(props);
-    this.state = {};
+    this.state = {
+      data: 'placeholder'
+    };
   }
+
+  componentDidMount () {
+    this.callBackendAPI()
+      .then(res => this.setState({ data: res.express }))
+      .catch(err => console.log(err));
+  }
+
+  async callBackendAPI () {
+    const response = await fetch('/api');
+    const body = await response.json();
+
+    if (response.status !== 200) {
+      throw Error(body.message);
+    }
+    return body;
+  };
 
   render () {
     return (
@@ -18,6 +36,7 @@ class App extends React.Component {
         <Navigation />
 
         <Route path={PATHS.RESOURCE} component={Resource} />
+        <p>{this.state.data}</p>
       </Router>
     );
   }
