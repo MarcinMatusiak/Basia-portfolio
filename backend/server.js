@@ -8,7 +8,7 @@ App.use(BodyParser.json());
 App.use(Express.static('public'));
 
 App.get('/api', (req, res) => {
-  res.send({ message: 'Seems to work' });
+  res.send({ message: 'Seems to works' });
 });
 
 App.listen(PORT, () => {

@@ -15,21 +15,16 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    this.callBackendAPI()
+    fetch('/api')
+      .then(response => {
+        if (response.status !== 200) {
+          throw Error(response.json().message);
+        }
+        return response.json();
+      })
       .then(res => this.setState({ data: res.message }))
       .catch(err => console.log(err));
   }
-
-  async callBackendAPI () {
-    const response = await fetch('/api');
-    console.log(response);
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
 
   render () {
     return (

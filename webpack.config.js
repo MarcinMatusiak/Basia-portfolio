@@ -35,7 +35,16 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
