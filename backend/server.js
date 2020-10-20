@@ -9,7 +9,7 @@ const router = express.Router();
 const App = express();
 App.use(cors());
 App.use(express.json());
-App.use('/', router);
+App.use('/api', router);
 
 const PORT = 3000;
 
@@ -35,11 +35,12 @@ transporter.verify((error, success) => {
 router.post('/send', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
+  const phone = req.body.phone;
   const message = req.body.message;
-  const content = `name: ${name} \n email: ${email} \n message: ${message} `;
+  const content = `name: ${name} \nemail: ${email} \nphone: ${phone} \nmessage: ${message}`;
 
   const mail = {
-    from: name,
+    from: email,
     to: `${auth.USER}`,
     subject: 'Wiadomość z formularza kontaktowego',
     text: content

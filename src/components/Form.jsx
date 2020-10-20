@@ -12,16 +12,16 @@ class Form extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onNameChange = this.onNameChange.bind(this);
-    this.onEmailChange = this.onEmailChange.bind(this);
-    this.onPhoneChange = this.onPhoneChange.bind(this);
-    this.onMessageChange = this.onMessageChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleMessageChange = this.handleMessageChange.bind(this);
   }
 
   handleSubmit (event) {
     event.preventDefault();
 
-    fetch('http://localhost:3000/send', {
+    fetch('http://localhost:3000/api/send', {
       method: 'POST',
       body: JSON.stringify(this.state),
       headers: {
@@ -40,47 +40,83 @@ class Form extends Component {
     });
   }
 
-  onNameChange (event) {
+  handleNameChange (event) {
     this.setState({ name: event.target.value });
   }
 
-  onEmailChange (event) {
+  handleEmailChange (event) {
     this.setState({ email: event.target.value });
   }
 
-  onPhoneChange (event) {
+  handlePhoneChange (event) {
     this.setState({ phone: event.target.value });
   }
 
-  onMessageChange (event) {
+  handleMessageChange (event) {
     this.setState({ message: event.target.value });
   }
 
   resetForm () {
-    this.setState({ name: '', email: '', message: '' });
+    this.setState({ name: '', email: '', phone: '', message: '' });
   }
 
   render () {
     return (
       <div className='App'>
-        <form id='contact-form' onSubmit={this.handleSubmit} method='POST'>
+        <form
+          id='contact-form'
+          onSubmit={this.handleSubmit}
+          method='POST'
+        >
           <div className='form-group'>
-            <label htmlFor='name'>Name</label>
-            <input type='text' className='form-control' onChange={this.onNameChange} />
+            <label htmlFor='name'>Imię i nazwisko</label>
+            <input
+              type='text'
+              className='form'
+              tittle="Imie i nazwisko powinno składać się z 2 lub więcej wyrazów, dozwolone litery oraz znaki ', ´, `, - ora spacja"
+              minLength='5'
+              maxLength='50'
+              pattern="^[a-zA-Z\u00C0-\u021B-'´`]+\.?\s([a-zA-Z\u00C0-\u021B-'´`]+\.?\s?)+$"
+              onChange={this.handleNameChange}
+              required
+            />
           </div>
           <div className='form-group'>
-            <label htmlFor='email1'>Email address</label>
-            <input type='email' className='form-control' aria-describedby='email' onChange={this.onEmailChange} />
+            <label htmlFor='email1'>Adres email</label>
+            <input
+              type='email'
+              className='form'
+              title='adres email powinien mieć format xxxxx@yyy.zz, dozwolone znaki -, _, . oraz cyfry i litery'
+              pattern='\b[\w\._-]+@[\w\._-]+\.[a-zA-Z]{2,3}'
+              onChange={this.handleEmailChange}
+              required
+            />
           </div>
           <div className='form-group'>
-            <label htmlFor='phone'>Phone number</label>
-            <input type='number' className='form-control' aria-describedby='phone' onChange={this.onPhoneChange} />
+            <label htmlFor='phone'>Numer Telefonu</label>
+            <input
+              type='tel'
+              className='form'
+              title='numer telefonu powinien składać się z co najmniej 9 cyfr, dozowlone znaki +, -, ., (), oraz spacja'
+              minLength='9'
+              maxLength='21'
+              pattern='^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$'
+              onChange={this.handlePhoneChange}
+              required
+            />
           </div>
           <div className='form-group'>
-            <label htmlFor='message'>Message</label>
-            <textarea className='form-control' rows='5' onChange={this.onMessageChange} />
+            <label htmlFor='message'>Treść wiadomości</label>
+            <textarea
+              className='form'
+              title='treść wiadomości musi zawierać co najmniej 5 i co najwyżej 1000 znaków'
+              minLength='5'
+              maxLength='1000'
+              onChange={this.handleMessageChange}
+              required
+            />
           </div>
-          <button type='submit' className='btn btn-primary'>Submit</button>
+          <button type='submit' className='btn'>Wyślij</button>
         </form>
       </div>
     );
