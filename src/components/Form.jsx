@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Form () {
+export default function Form () {
   const [state, setState] = useState({
     name: '',
     email: '',
@@ -123,5 +123,3 @@ function Form () {
     </div>
   );
 }
-
-export default Form;

@@ -1,22 +1,54 @@
 body{
     font-family: 'Share';
+    padding: 1vw;
+}
+
+.container{
+    padding: 0 1vw;
 }
 a{
     text-decoration: none;
     color: #000;
 }
+
 ul{
     list-style-type: none;
     margin: 0;
-    padding: 0 10px;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    
+    padding: 0;
+    font-weight: 600; 
 }
+
+.nav-sup{
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    text-transform: uppercase;
+}
+
+.nav-avg{
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+    padding: 0 1vw;
+}
+
+.nav-sub{
+    font-size: 1rem;
+    line-height: 1.4rem;
+    padding: 0 1vw;
+}
+
+.nav-avg:first-of-type, .nav-sub:first-of-type{
+    padding-top: 1vh;
+}
+
+.nav-avg:last-of-type, .nav-sub:last-of-type{
+    padding-bottom: 1vh;
+}
+
 p{
     line-height: 120%;
+    
 }
+
 img{
-    padding: 10px;
+    padding-bottom: 2vw ;
 }
