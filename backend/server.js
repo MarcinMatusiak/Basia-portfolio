@@ -59,7 +59,7 @@ router.post('/send', (req, res, next) => {
   });
 });
 
-App.get('/api', (req, res) => {
+router.get('/', (req, res) => {
   res.send({ message: 'Seems to works' });
 });
 

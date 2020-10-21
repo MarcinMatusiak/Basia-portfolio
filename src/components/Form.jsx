@@ -5,10 +5,10 @@ class Form extends Component {
     super(props);
 
     this.state = {
-      message: '',
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      message: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,6 +16,7 @@ class Form extends Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   handleSubmit (event) {
@@ -57,7 +58,12 @@ class Form extends Component {
   }
 
   resetForm () {
-    this.setState({ name: '', email: '', phone: '', message: '' });
+    this.setState({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   }
 
   render () {
@@ -73,10 +79,12 @@ class Form extends Component {
             <input
               type='text'
               className='form'
-              tittle="Imie i nazwisko powinno składać się z 2 lub więcej wyrazów, dozwolone litery oraz znaki ', ´, `, - ora spacja"
+              title="Imie i nazwisko powinno składać się z 2 lub więcej wyrazów,
+              dozwolone litery oraz znaki ', ´, `, - oraz spacja"
               minLength='5'
               maxLength='50'
               pattern="^[a-zA-Z\u00C0-\u021B-'´`]+\.?\s([a-zA-Z\u00C0-\u021B-'´`]+\.?\s?)+$"
+              value={this.state.name}
               onChange={this.handleNameChange}
               required
             />
@@ -86,8 +94,10 @@ class Form extends Component {
             <input
               type='email'
               className='form'
-              title='adres email powinien mieć format xxxxx@yyy.zz, dozwolone znaki -, _, . oraz cyfry i litery'
+              title='adres email powinien mieć format xxxxx@yyy.zz,
+              dozwolone znaki -, _, . oraz cyfry i litery'
               pattern='\b[\w\._-]+@[\w\._-]+\.[a-zA-Z]{2,3}'
+              value={this.state.email}
               onChange={this.handleEmailChange}
               required
             />
@@ -97,10 +107,12 @@ class Form extends Component {
             <input
               type='tel'
               className='form'
-              title='numer telefonu powinien składać się z co najmniej 9 cyfr, dozowlone znaki +, -, ., (), oraz spacja'
+              title='numer telefonu powinien składać się z co najmniej 9 cyfr,
+              dozowlone znaki +, -, ., (), oraz spacja'
               minLength='9'
               maxLength='21'
               pattern='^\s*(?:\+?(\d{1,3}))?([-. (]*(\d{3})[-. )]*)?((\d{3})[-. ]*(\d{2,4})(?:[-.x ]*(\d+))?)\s*$'
+              value={this.state.phone}
               onChange={this.handlePhoneChange}
               required
             />
@@ -109,14 +121,21 @@ class Form extends Component {
             <label htmlFor='message'>Treść wiadomości</label>
             <textarea
               className='form'
-              title='treść wiadomości musi zawierać co najmniej 5 i co najwyżej 1000 znaków'
+              title='treść wiadomości musi zawierać co
+              najmniej 5 i co najwyżej 1000 znaków'
               minLength='5'
               maxLength='1000'
+              value={this.state.message}
               onChange={this.handleMessageChange}
               required
             />
           </div>
-          <button type='submit' className='btn'>Wyślij</button>
+          <button
+            type='submit'
+            className='btn'
+            data-sitekey='r6Ld9x9kZAAAAAERGQ9LaW6tJA0MA-Hu6DGVoITij'
+          >Wyślij
+          </button>
         </form>
       </div>
     );
