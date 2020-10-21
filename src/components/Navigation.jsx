@@ -7,10 +7,12 @@ import Home from './Home';
 import Prices from './Prices';
 import Categories from './Categories';
 import PATHS from '../paths';
+import logo from '../img/logo.png';
 
 export default function Navigation () {
   return (
     <nav>
+      <img src={logo} alt='logo' width='250px' />
       <ul>
         <li><Link to={PATHS.HOME}>Strona domowa</Link></li>
         <li><Link to={PATHS.PORTFOLIO}>Portfolio</Link></li>
