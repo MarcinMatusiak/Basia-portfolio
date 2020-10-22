@@ -23,7 +23,7 @@ function App () {
       })
       .then(res => setState({ data: res.message }))
       .catch(err => console.log(err));
-  });
+  }, []);
 
   return (
     <Router>

@@ -1,4 +1,4 @@
-const categories = [
+module.exports = [
   {
     name: 'Sesje noworodkowe',
     id: 'sesje_noworodkowe',
@@ -74,4 +74,3 @@ const categories = [
     ]
   }
 ];
-export default categories;

@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 const cors = require('cors');
 
 const auth = require('./config/config');
+const categories = require('../src/data/categories');
 
 const router = express.Router();
 
@@ -61,6 +62,10 @@ router.post('/send', (req, res, next) => {
 
 router.get('/', (req, res) => {
   res.send({ message: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores molestiae impedit illo eligendi voluptas laboriosam, cupiditate accusamus? Doloribus quidem tempora atque maiores voluptatem quasi magnam cumque iste similique, asperiores placeat. Inventore itaque, nobis atque minus tenetur neque amet ipsam veniam repellendus veritatis dolore, obcaecati id porro eum consectetur aliquam quisquam cum esse sequi quo. Mollitia eius officiis quos reprehenderit repudiandae enim dolores optio delectus? Eveniet quisquam, voluptate libero cupiditate ipsam rerum facilis! Consectetur, impedit, hic fugit dolor necessitatibus deserunt ex veniam quas libero nemo voluptas unde. Numquam obcaecati asperiores voluptatem aspernatur ipsa velit quas, expedita fugit optio quis corrupti laborum.' });
+});
+
+router.get('/categories', (req, res) => {
+  res.send(categories);
 });
 
 App.listen(PORT, () => {
