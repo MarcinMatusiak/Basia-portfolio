@@ -25,17 +25,40 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          'css-loader']
+      },
+      {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
       }
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        secure: false
+      }
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

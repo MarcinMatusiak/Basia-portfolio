@@ -14,12 +14,12 @@ export default function Categories () {
 function Category ({ name, id, resources }) {
   const { url } = useRouteMatch();
   return (
-    <li>
+    <li className='nav-avg'>
       <Link to={`${url}/${id}`}>{name}</Link>
       <Route path={`/portfolio/${id}`}>
         <ul>
           {resources.map((res) => (
-            <li key={res.id}>
+            <li key={res.id} className='nav-sub'>
               <Link to={`${url}/${id}/${res.id}`}>{res.name}</Link>
             </li>
           ))}

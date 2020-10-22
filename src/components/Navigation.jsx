@@ -7,17 +7,19 @@ import Home from './Home';
 import Prices from './Prices';
 import Categories from './Categories';
 import PATHS from '../paths';
+import logo from '../img/logo.png';
 
 export default function Navigation () {
   return (
     <nav>
+      <Link to={PATHS.HOME}><img src={logo} alt='logo' width='250px' /></Link>
       <ul>
-        <li><Link to={PATHS.HOME}>Strona domowa</Link></li>
-        <li><Link to={PATHS.PORTFOLIO}>Portfolio</Link></li>
+        <li className='nav-sup'><Link to={PATHS.HOME}>Strona domowa</Link></li>
+        <li className='nav-sup'><Link to={PATHS.PORTFOLIO}>Portfolio</Link></li>
         <Route path={PATHS.PORTFOLIO} component={Categories} />
-        <li><Link to={PATHS.PRICES}>Cennik</Link></li>
-        <li><Link to={PATHS.ABOUT}>O mnie</Link></li>
-        <li><Link to={PATHS.CONTACT}>Kontakt</Link></li>
+        <li className='nav-sup'><Link to={PATHS.PRICES}>Cennik</Link></li>
+        <li className='nav-sup'><Link to={PATHS.ABOUT}>O mnie</Link></li>
+        <li className='nav-sup'><Link to={PATHS.CONTACT}>Kontakt</Link></li>
       </ul>
 
       <Route exact path={PATHS.HOME} component={Home} />

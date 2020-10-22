@@ -1,0 +1,37 @@
+{
+  "name": "basia-portfolio-backend",
+  "version": "1.0.0",
+  "description": "Express backend to react portfolio webpage",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcinMatusiak/Basia-portfolio.git"
+  },
+  "keywords": [
+    "photo",
+    "photography",
+    "website",
+    "portfolio",
+    "Barbara",
+    "Librowska",
+    "React",
+    "Express"
+  ],
+  "author": "Marcin Matusiak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcinMatusiak/Basia-portfolio/issues"
+  },
+  "homepage": "https://github.com/MarcinMatusiak/Basia-portfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.14",
+    "nodemon": "^2.0.5"
+  }
+}
