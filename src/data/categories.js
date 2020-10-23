@@ -24,6 +24,23 @@ module.exports = [
       {
         name: 'Róża',
         id: 'roza'
+      },
+      {
+        name: 'Marysia i Helenka',
+        id: 'marysia-helenka',
+        pics: ['../img/marysia-helenka/DSC_0061.jpg',
+          '../img/marysia-helenka/DSC_0065.jpg',
+          '../img/marysia-helenka/DSC_0066.jpg',
+          '../img/marysia-helenka/DSC_0073.jpg',
+          '../img/marysia-helenka/DSC_0079.jpg',
+          '../img/marysia-helenka/DSC_0087.jpg',
+          '../img/marysia-helenka/DSC_0089.jpg',
+          '../img/marysia-helenka/DSC_0096.jpg',
+          '../img/marysia-helenka/DSC_0103.jpg',
+          '../img/marysia-helenka/DSC_0186.jpg',
+          '../img/marysia-helenka/DSC_0198.jpg',
+          '../img/marysia-helenka/DSC_0199.jpg'
+        ]
       }
     ]
   },

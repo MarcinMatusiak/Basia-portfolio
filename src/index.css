@@ -1,12 +1,13 @@
 body{
     font-family: 'Share';
-    padding: 1vw;
+    box-sizing: border-box;
 }
 
 .container{
     display: flex;
-    padding: 0 1vw;
+    padding-top: 1vw;
 }
+
 a{
     text-decoration: none;
     color: #000;
@@ -17,6 +18,17 @@ ul{
     margin: 0;
     padding: 0;
     font-weight: 600; 
+}
+
+nav{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 100%;
 }
 
 .nav-sup{

@@ -12,7 +12,9 @@ import logo from '../img/logo.png';
 export default function Navigation () {
   return (
     <nav>
-      <Link to={PATHS.HOME}><img src={logo} alt='logo' width='250px' /></Link>
+      <Link to={PATHS.HOME}>
+        <img src={logo} alt='logo' className='logo' />
+      </Link>
       <ul>
         <li className='nav-sup'><Link to={PATHS.HOME}>Strona domowa</Link></li>
         <li className='nav-sup'><Link to={PATHS.PORTFOLIO}>Portfolio</Link></li>

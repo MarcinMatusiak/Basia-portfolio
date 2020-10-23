@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import zdj from '../img/marysia-helenka/DSC_0061.jpg';
 
 export default function Resource ({
   match: {
@@ -11,9 +12,10 @@ export default function Resource ({
   useEffect(() => {
     fetch('/api/categories')
       .then(res => res.json())
-      .then(res => res.find(({ id }) => id === categoryId))
-      .then(res => res.resources)
-      .then(res => res.find(({ id }) => id === resourceId))
+      .then(res => res.find(({ id }) => id === categoryId)
+        .resources
+        .find(({ id }) => id === resourceId)
+      )
       .then(
         (result) => {
           setResource(result);
@@ -22,14 +24,20 @@ export default function Resource ({
           setError(error);
         }
       );
-  }, []);
+  }, [resourceId]);
   if (error) {
     return <div>Error: {error.message}</div>;
   } else {
     return (
       <div>
         {resource.name}
-        {/* resource.imgs */}
+        {console.log(resource.pics)}
+        {resource.pics}
+        <img src={zdj} alt={`picture ${resource.name}`} className='picture' />
+        {/*
+            {resource.imgs.map(( pic) => <img src={pic.url} alt={pic.id} className='picture' />)}
+
+        */}
       </div>
     );
   }
