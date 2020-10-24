@@ -28,7 +28,8 @@ module.exports = [
       {
         name: 'Marysia i Helenka',
         id: 'marysia-helenka',
-        pics: ['../img/marysia-helenka/DSC_0061.jpg',
+        pics: [
+          '../img/marysia-helenka/DSC_0061.jpg',
           '../img/marysia-helenka/DSC_0065.jpg',
           '../img/marysia-helenka/DSC_0066.jpg',
           '../img/marysia-helenka/DSC_0073.jpg',

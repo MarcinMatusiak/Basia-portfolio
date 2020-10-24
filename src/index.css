@@ -20,6 +20,10 @@ ul{
     font-weight: 600; 
 }
 
+.navigation{
+    display: flex
+}
+
 nav{
     height: 100vh;
     display: flex;
