@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require('path');
 
 const auth = require('./config/config');
 const categories = require('../src/data/categories');
@@ -11,6 +12,7 @@ const App = express();
 App.use(cors());
 App.use(express.json());
 App.use('/api', router);
+App.use(express.static('src'));
 
 const PORT = 3000;
 
@@ -66,6 +68,14 @@ router.get('/', (req, res) => {
 
 router.get('/categories', (req, res) => {
   res.send(categories);
+});
+
+router.get('/:resourceId/:imgId', (req, res) => {
+  const resourceId = req.params.resourceId;
+  const imgId = req.params.imgId;
+  const rootPath = path.join(__dirname, '../');
+
+  res.sendFile(path.join(rootPath, `src/img/${resourceId}/${imgId}`));
 });
 
 App.listen(PORT, () => {

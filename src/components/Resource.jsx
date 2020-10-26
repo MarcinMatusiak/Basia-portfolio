@@ -42,7 +42,7 @@ function Pictures ({ resource, pics }) {
   return (
     <div>
       <p>{resource.name}</p>
-      {pics.map((pic, i) => <img src={require(`${pic}`)} key={i} />)}
+      {pics.map((pic, i) => <img src={pic} key={i} />)}
     </div>
   );
 }
