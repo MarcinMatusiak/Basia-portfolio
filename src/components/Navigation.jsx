@@ -11,7 +11,7 @@ import logo from '../img/logo.png';
 
 export default function Navigation () {
   return (
-    <div className='navigation'>
+    <section className='navigation'>
       <nav>
         <Link to={PATHS.HOME}>
           <img src={logo} alt='logo' className='logo' />
@@ -30,7 +30,7 @@ export default function Navigation () {
       <Route path={PATHS.PRICES} component={Prices} />
       <Route path={PATHS.ABOUT} component={About} />
       <Route path={PATHS.CONTACT} component={Contact} />
-    </div>
+    </section>
 
   );
 };

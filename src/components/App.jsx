@@ -30,7 +30,6 @@ function App () {
       <Navigation />
 
       <Route path={PATHS.RESOURCE} component={Resource} />
-      <p>{state.data}</p>
     </Router>
   );
 }

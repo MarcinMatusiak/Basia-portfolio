@@ -74,7 +74,6 @@ router.get('/:resourceId/:imgId', (req, res) => {
   const resourceId = req.params.resourceId;
   const imgId = req.params.imgId;
   const rootPath = path.join(__dirname, '../');
-
   res.sendFile(path.join(rootPath, `src/img/${resourceId}/${imgId}`));
 });
 

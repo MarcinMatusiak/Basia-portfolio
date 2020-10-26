@@ -40,9 +40,11 @@ export default function Resource ({
 
 function Pictures ({ resource, pics }) {
   return (
-    <div>
-      <p>{resource.name}</p>
-      {pics.map((pic, i) => <img src={pic} key={i} />)}
-    </div>
+    <section>
+      <h2>{resource.name}</h2>
+      <div className='gallery'>
+        {pics.map((pic, i) => <div className='galletyItem'> <img src={pic} key={i} /> </div>)}
+      </div>
+    </section>
   );
 }

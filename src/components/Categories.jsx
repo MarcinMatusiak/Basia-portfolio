@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
 
-import categories from '../data/categories';
-
 export default function Categories () {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/categories')
+      .then(res => res.json())
+      .then(res => setCategories(res));
+  }, []);
+
   return (
     <ul>
       {categories.map(category => <Category {...category} key={category.id} />)}
