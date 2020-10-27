@@ -7,7 +7,8 @@ export default function Form () {
     email: '',
     phone: '',
     topic: '',
-    message: ''
+    message: '',
+    checkbox: false
   });
 
   function handleSubmit (event) {
@@ -24,18 +25,22 @@ export default function Form () {
       (response) => (response.json())
     ).then((response) => {
       if (response.status === 'success') {
-        alert('Message Sent.');
+        alert('Wiadomość Wysłana.');
         resetForm();
       } else if (response.status === 'fail') {
-        alert('Message failed to send.');
+        alert('Nie udało się wysłać wiadomości.');
       }
     });
   }
 
   function handleChange (event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
     setState({
       ...state,
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
 
@@ -45,7 +50,8 @@ export default function Form () {
       email: '',
       phone: '',
       topic: '',
-      message: ''
+      message: '',
+      checkbox: false
     });
   }
 
@@ -57,6 +63,7 @@ export default function Form () {
         onSubmit={handleSubmit}
         method='POST'
       >
+
         <div className='form-group'>
           <label htmlFor='name'>Imię i nazwisko*</label>
           <input
@@ -64,7 +71,7 @@ export default function Form () {
             type='text'
             className='form'
             title="Imie i nazwisko powinno składać się z 2 lub więcej wyrazów,
-              dozwolone litery oraz znaki ', ´, `, - oraz spacja"
+                dozwolone litery oraz znaki ', ´, `, - oraz spacja"
             minLength='5'
             maxLength='50'
             pattern="^[a-zA-Z\u00C0-\u021B-'´`]+\.?\s([a-zA-Z\u00C0-\u021B-'´`]+\.?\s?)+$"
@@ -73,6 +80,7 @@ export default function Form () {
             required
           />
         </div>
+
         <div className='form-group'>
           <label htmlFor='email1'>Adres email*</label>
           <input
@@ -87,6 +95,7 @@ export default function Form () {
             required
           />
         </div>
+
         <div className='form-group'>
           <label htmlFor='phone'>Numer Telefonu*</label>
           <input
@@ -103,6 +112,7 @@ export default function Form () {
             required
           />
         </div>
+
         <div className='form-group'>
           <label htmlFor='topic'>Temat*</label>
           <input
@@ -117,7 +127,8 @@ export default function Form () {
             required
           />
         </div>
-        <div className='form-group message'>
+
+        <div className='form-group grid-2'>
           <label htmlFor='message'>Treść wiadomości*</label>
           <textarea
             name='message'
@@ -131,23 +142,28 @@ export default function Form () {
             required
           />
         </div>
-        <div className='form-group'>
+
+        <div className='form-group grid-2'>
           <input
+            name='checkbox'
             type='checkbox'
             tittle='zgoda jest wymagana'
+            checked={state.checkbox}
+            onChange={handleChange}
             required
           />
           <span>* </span>
           <label htmlFor='checkbox'>
             Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
-            ochronie danych osobowych w związku z obsługą zapytania przesłąnego
+            ochronie danych osobowych w związku z obsługą zapytania przesłanego
             przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
-            niezbędne do przetworzenia zapytania. Zostałęm poinformowany, że
+            niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
             przysługuje mi prawo dostępu do swoich danych, możliwości ich
             poprawiania, żądania zaprzestania ich przetwarzania. Administratorem
             danych osobowych jest {NAME}, {ADDRESS}
           </label>
         </div>
+
         <button
           type='submit'
           className='btn'

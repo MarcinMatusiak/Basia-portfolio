@@ -41,7 +41,14 @@ router.post('/send', (req, res, next) => {
   const phone = req.body.phone;
   const topic = req.body.topic;
   const message = req.body.message;
-  const content = `Imię i nazwisko: ${name} \nemail: ${email} \nNr telefonu: ${phone} \nTreść wiadomości: ${message}`;
+  const checkbox = req.body.checkbox === true ? 'tak' : 'nie';
+  const content = `\
+  Imię i nazwisko: ${name}\
+  \nAdres email: ${email}\
+  \nNr telefonu: ${phone}\
+  \nZgoda na przetwarzanie danych: ${checkbox}\
+  \nTreść wiadomości:\n${message}\
+  `;
 
   const mail = {
     from: `${name}`,

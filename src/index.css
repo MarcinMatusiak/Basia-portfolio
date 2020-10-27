@@ -104,39 +104,57 @@ h2 {
 }
 
 form{
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 4vw 8vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 4vw 6vw;
 }
 
 .form-group{
+    flex-grow: 1;
+    min-width: calc(33vw - 75px);
     padding: 1vw 3vw;
+}
+
+.grid-2 {
+    flex-grow: 2;
+    min-width: calc(66vw - 150px);
 }
 
 input, textarea{
     padding: 0.5vw;
-    flex-grow: 2;
+    width: 100%;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: none;
+    height: 8em;
+}
+
+[name=checkbox] {
+    width: 16px;
 }
 
 label{
     display: block;
 }
 
-
-label:last-of-type{
+label:last-child{
     display: inline;
-
-}
-
-.message{
-    grid-column: span 2;
 }
 
 .btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #777;
+    text-transform: uppercase;
     border: 1px solid #000;
     border-radius: 10px;;
-    width: 80px;
-    max-height: 40px;
+    width: 90px;
+    height: 30px;
+    align-self: flex-end;
 }
 .btn:hover {
     opacity: 0.8;
@@ -156,5 +174,9 @@ label:last-of-type{
     }
     h2 {
         padding-right: 6vw;
+    }
+    
+    .form-group{
+        min-width: calc(75vw - 150px);
     }
 }
