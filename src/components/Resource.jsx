@@ -43,8 +43,8 @@ function Pictures ({ resource, pics }) {
     <section className='content'>
       <h2>{resource.name}</h2>
       <div className='gallery'>
-        {pics.map((pic, i) => <div className='galletyItem'> <img src={pic} key={i} /> </div>)}
+        {pics.map((pic, i) => <div className='gallery-item'> <img src={pic} key={i} /> </div>)}
       </div>
     </section>
   );
-}
+};

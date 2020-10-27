@@ -1,63 +1,28 @@
-import React, { useState } from 'react';
-import { NAME, ADDRESS } from '../../backend/config/config';
+import React from 'react';
 
-export default function Form () {
-  const [state, setState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    topic: '',
-    message: '',
-    checkbox: false
-  });
-
-  function handleSubmit (event) {
-    event.preventDefault();
-
-    fetch('http://localhost:3000/api/send', {
-      method: 'POST',
-      body: JSON.stringify(state),
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      }
-    }).then(
-      (response) => (response.json())
-    ).then((response) => {
-      if (response.status === 'success') {
-        alert('Wiadomość Wysłana.');
-        resetForm();
-      } else if (response.status === 'fail') {
-        alert('Nie udało się wysłać wiadomości.');
-      }
-    });
-  }
-
-  function handleChange (event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    setState({
-      ...state,
-      [name]: value
-    });
-  }
-
-  function resetForm () {
-    setState({
-      name: '',
-      email: '',
-      phone: '',
-      topic: '',
-      message: '',
-      checkbox: false
-    });
-  }
-
+export default function Form ({ content, state, handleChange, handleSubmit }) {
   return (
-    <div className='content'>
+    <section className='content'>
       <h2>Kontakt</h2>
+      <div className='content-item'>
+        <div className='grid-2'>
+          {content.content}
+        </div>
+      </div>
+      <div className='content-item'>
+        <div>
+          {content.name}
+        </div>
+        <div>
+          {content.address}
+        </div>
+        <div>
+          <a className='italic' href={`tel:${content.phone}`}>{content.phone}</a>
+        </div>
+        <div>
+          <a className='italic' href={`mailto:${content.email}`}>{content.email}</a>
+        </div>
+      </div>
       <form
         id='contact-form'
         onSubmit={handleSubmit}
@@ -154,13 +119,7 @@ export default function Form () {
           />
           <span>* </span>
           <label htmlFor='checkbox'>
-            Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
-            ochronie danych osobowych w związku z obsługą zapytania przesłanego
-            przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
-            niezbędne do przetworzenia zapytania. Zostałem poinformowany, że
-            przysługuje mi prawo dostępu do swoich danych, możliwości ich
-            poprawiania, żądania zaprzestania ich przetwarzania. Administratorem
-            danych osobowych jest {NAME}, {ADDRESS}
+            {content.checkbox}
           </label>
         </div>
 
@@ -171,6 +130,6 @@ export default function Form () {
         >Wyślij
         </button>
       </form>
-    </div>
+    </section>
   );
 }

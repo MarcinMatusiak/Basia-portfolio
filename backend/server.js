@@ -5,6 +5,7 @@ const path = require('path');
 
 const auth = require('./config/config');
 const categories = require('../src/data/categories');
+const contact = require('../src/data/contact');
 
 const router = express.Router();
 
@@ -42,8 +43,7 @@ router.post('/send', (req, res, next) => {
   const topic = req.body.topic;
   const message = req.body.message;
   const checkbox = req.body.checkbox === true ? 'tak' : 'nie';
-  const content = `\
-  Imię i nazwisko: ${name}\
+  const content = `Imię i nazwisko: ${name}\
   \nAdres email: ${email}\
   \nNr telefonu: ${phone}\
   \nZgoda na przetwarzanie danych: ${checkbox}\
@@ -76,6 +76,10 @@ router.get('/', (req, res) => {
 
 router.get('/categories', (req, res) => {
   res.send(categories);
+});
+
+router.get('/contact', (req, res) => {
+  res.send(contact);
 });
 
 router.get('/:resourceId/:imgId', (req, res) => {
