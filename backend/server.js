@@ -39,13 +39,14 @@ router.post('/send', (req, res, next) => {
   const name = req.body.name;
   const email = req.body.email;
   const phone = req.body.phone;
+  const topic = req.body.topic;
   const message = req.body.message;
-  const content = `name: ${name} \nemail: ${email} \nphone: ${phone} \nmessage: ${message}`;
+  const content = `Imię i nazwisko: ${name} \nemail: ${email} \nNr telefonu: ${phone} \nTreść wiadomości: ${message}`;
 
   const mail = {
-    from: email,
+    from: `${name}`,
     to: `${auth.USER}`,
-    subject: 'Wiadomość z formularza kontaktowego',
+    subject: topic,
     text: content
   };
 

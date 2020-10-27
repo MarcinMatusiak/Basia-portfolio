@@ -1,6 +1,6 @@
-body{
-    font-family: 'Share';
+* {
     box-sizing: border-box;
+    font-family: 'Share';
     padding: 0;
     margin: 0;
 }
@@ -25,14 +25,14 @@ ul{
 
 .navigation{
     display: flex;
-    width: 100%;
 }
 
 nav{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+nav > ul{
+padding-left: 2vw;
 }
 
 .logo {
@@ -48,13 +48,13 @@ nav{
 .nav-avg{
     font-size: 1.1rem;
     line-height: 1.4rem;
-    padding: 0 1vw;
+    padding-left: 1vw;
 }
 
 .nav-sub{
     font-size: 1rem;
     line-height: 1.4rem;
-    padding: 0 1vw;
+    padding-left: 1vw;
 }
 
 .nav-avg:first-of-type, .nav-sub:first-of-type{
@@ -75,7 +75,6 @@ p{
 }
 
 .gallery {
-    box-sizing: border-box;
     width: 100%;
     column-count: 2;
     column-gap: 0;
@@ -85,11 +84,16 @@ p{
 h2 {
     width: 100%;
     text-align: center;
+    padding-right: 8vw;
     
 }
 
+.galleryItem {
+    width: 50%;
+}
+
 .galletyItem img {
-    width: calc(46vw - 156px);
+    width: 100%;;
     padding-bottom: 3vw;
     padding-right: 3vw;
     height: auto;
@@ -99,7 +103,46 @@ h2 {
     opacity: 0.5;
 }
 
-@media only screen and (max-width: 768px) {
+form{
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 4vw 8vw;
+}
+
+.form-group{
+    padding: 1vw 3vw;
+}
+
+input, textarea{
+    padding: 0.5vw;
+    flex-grow: 2;
+}
+
+label{
+    display: block;
+}
+
+
+label:last-of-type{
+    display: inline;
+
+}
+
+.message{
+    grid-column: span 2;
+}
+
+.btn {
+    border: 1px solid #000;
+    border-radius: 10px;;
+    width: 80px;
+    max-height: 40px;
+}
+.btn:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
     .container{
         grid-template-columns: 200px 1fr;
     }
@@ -109,6 +152,9 @@ h2 {
     }
 
     .galletyItem img {
-        width: calc(97vw - 206px);
+        width: calc(97vw - 200px);
+    }
+    h2 {
+        padding-right: 6vw;
     }
 }

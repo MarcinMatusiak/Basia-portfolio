@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navigation from './Navigation';
+import About from './About';
+import Contact from './Contact';
+import Home from './Home';
+import Prices from './Prices';
 import Resource from './Resource';
 import PATHS from '../paths';
 
@@ -28,7 +32,10 @@ function App () {
   return (
     <Router>
       <Navigation />
-
+      <Route exact path={PATHS.HOME} component={Home} />
+      <Route path={PATHS.PRICES} component={Prices} />
+      <Route path={PATHS.ABOUT} component={About} />
+      <Route path={PATHS.CONTACT} component={Contact} />
       <Route path={PATHS.RESOURCE} component={Resource} />
     </Router>
   );

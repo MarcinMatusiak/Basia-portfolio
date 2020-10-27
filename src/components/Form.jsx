@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { NAME, ADDRESS } from '../../backend/config/config';
 
 export default function Form () {
   const [state, setState] = useState({
     name: '',
     email: '',
     phone: '',
+    topic: '',
     message: ''
   });
 
@@ -42,19 +44,21 @@ export default function Form () {
       name: '',
       email: '',
       phone: '',
+      topic: '',
       message: ''
     });
   }
 
   return (
-    <div className='App'>
+    <div className='content'>
+      <h2>Kontakt</h2>
       <form
         id='contact-form'
         onSubmit={handleSubmit}
         method='POST'
       >
         <div className='form-group'>
-          <label htmlFor='name'>Imię i nazwisko</label>
+          <label htmlFor='name'>Imię i nazwisko*</label>
           <input
             name='name'
             type='text'
@@ -70,7 +74,7 @@ export default function Form () {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='email1'>Adres email</label>
+          <label htmlFor='email1'>Adres email*</label>
           <input
             name='email'
             type='email'
@@ -84,7 +88,7 @@ export default function Form () {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='phone'>Numer Telefonu</label>
+          <label htmlFor='phone'>Numer Telefonu*</label>
           <input
             name='phone'
             type='tel'
@@ -100,7 +104,21 @@ export default function Form () {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='message'>Treść wiadomości</label>
+          <label htmlFor='topic'>Temat*</label>
+          <input
+            name='topic'
+            className='form'
+            title='temat wiadomości musi zawierać co
+              najmniej 3 i co najwyżej 100 znaków'
+            minLength='3'
+            maxLength='100'
+            value={state.topic}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className='form-group message'>
+          <label htmlFor='message'>Treść wiadomości*</label>
           <textarea
             name='message'
             className='form'
@@ -112,6 +130,23 @@ export default function Form () {
             onChange={handleChange}
             required
           />
+        </div>
+        <div className='form-group'>
+          <input
+            type='checkbox'
+            tittle='zgoda jest wymagana'
+            required
+          />
+          <span>* </span>
+          <label htmlFor='checkbox'>
+            Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z ustawą o
+            ochronie danych osobowych w związku z obsługą zapytania przesłąnego
+            przez formularz kontaktowy. Podanie danych jest dobrowolne, ale
+            niezbędne do przetworzenia zapytania. Zostałęm poinformowany, że
+            przysługuje mi prawo dostępu do swoich danych, możliwości ich
+            poprawiania, żądania zaprzestania ich przetwarzania. Administratorem
+            danych osobowych jest {NAME}, {ADDRESS}
+          </label>
         </div>
         <button
           type='submit'
