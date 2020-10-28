@@ -29,18 +29,54 @@ module.exports = [
         name: 'Marysia i Helenka',
         id: 'marysia-helenka',
         pics: [
-          '../../api/marysia-helenka/DSC_0061.jpg',
-          '../../api/marysia-helenka/DSC_0065.jpg',
-          '../../api/marysia-helenka/DSC_0066.jpg',
-          '../../api/marysia-helenka/DSC_0073.jpg',
-          '../../api/marysia-helenka/DSC_0079.jpg',
-          '../../api/marysia-helenka/DSC_0087.jpg',
-          '../../api/marysia-helenka/DSC_0089.jpg',
-          '../../api/marysia-helenka/DSC_0096.jpg',
-          '../../api/marysia-helenka/DSC_0103.jpg',
-          '../../api/marysia-helenka/DSC_0186.jpg',
-          '../../api/marysia-helenka/DSC_0198.jpg',
-          '../../api/marysia-helenka/DSC_0199.jpg'
+          {
+            id: 0,
+            name: 'DSC_0061.jpg'
+          },
+          {
+            id: 1,
+            name: 'DSC_0065.jpg'
+          },
+          {
+            id: 2,
+            name: 'DSC_0066.jpg'
+          },
+          {
+            id: 3,
+            name: 'DSC_0073.jpg'
+          },
+          {
+            id: 4,
+            name: 'DSC_0079.jpg'
+          },
+          {
+            id: 5,
+            name: 'DSC_0087.jpg'
+          },
+          {
+            id: 6,
+            name: 'DSC_0089.jpg'
+          },
+          {
+            id: 7,
+            name: 'DSC_0096.jpg'
+          },
+          {
+            id: 8,
+            name: 'DSC_0103.jpg'
+          },
+          {
+            id: 9,
+            name: 'DSC_0186.jpg'
+          },
+          {
+            id: 10,
+            name: 'DSC_0198.jpg'
+          },
+          {
+            id: 11,
+            name: 'DSC_0199.jpg'
+          }
         ]
       }
     ]

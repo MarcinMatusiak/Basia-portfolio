@@ -5,7 +5,7 @@ export default function Categories () {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('/api/categories')
+    fetch('/api/portfolio')
       .then(res => res.json())
       .then(res => setCategories(res));
   }, []);

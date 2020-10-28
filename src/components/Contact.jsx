@@ -21,7 +21,7 @@ export default function Contact () {
   function handleSubmit (event) {
     event.preventDefault();
 
-    fetch('http://localhost:3000/api/send', {
+    fetch('http://localhost:3000/api/contact/send', {
       method: 'POST',
       body: JSON.stringify(state),
       headers: {
