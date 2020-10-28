@@ -25,10 +25,7 @@ ul{
 
 .navigation{
     display: flex;
-}
-
-nav{
-    height: 100vh;
+    max-height: 99vh;
 }
 
 nav > ul{
@@ -78,14 +75,14 @@ p{
     width: 100%;
     column-count: 2;
     column-gap: 0;
-    padding-top: 2vw;
     padding-right: 2vw;
 }
 
 h2 {
     width: 100%;
     text-align: center;  
-    padding-right: 5vw;  
+    padding-right: 5vw; 
+    padding-bottom: 2vw; 
 }
 
 .gallery-item img {
@@ -107,11 +104,23 @@ h2 {
     opacity: 0.5;
 }
 
+.contact-content{
+    padding: 0 6vw;
+}
+
+.content-item {
+    padding: 0 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 form{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 4vw 6vw;
+    padding: 2vw 0;
+    
 }
 
 .form-group{
@@ -160,9 +169,12 @@ label:last-child{
     height: 30px;
     align-self: flex-end;
 }
+
 .btn:hover {
     opacity: 0.8;
 }
+
+
 
 @media screen and (max-width: 768px) {
     .container{
