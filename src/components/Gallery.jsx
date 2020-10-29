@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 
-export default function Resource ({ resource, pics }) {
+export default function Gallery ({ resource, pics }) {
   const location = useLocation();
   const { url } = useRouteMatch();
 

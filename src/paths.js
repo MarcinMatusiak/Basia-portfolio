@@ -6,6 +6,6 @@ const PATHS = {
   PORTFOLIO: '/portfolio'
 };
 PATHS.CATEGORY = PATHS.PORTFOLIO + '/:categoryId';
-PATHS.RESOURCE = PATHS.CATEGORY + '/:resourceId';
+PATHS.GALLERY = PATHS.CATEGORY + '/:resourceId';
 
 export default PATHS;

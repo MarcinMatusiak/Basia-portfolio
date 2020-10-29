@@ -7,7 +7,6 @@ import About from './About';
 import Contact from './Contact';
 import Home from './Home';
 import Prices from './Prices';
-import Resource from './Resource';
 import PATHS from '../paths';
 
 import '../index.css';
@@ -37,7 +36,7 @@ function App () {
       <Route path={PATHS.PRICES} component={Prices} />
       <Route path={PATHS.ABOUT} component={About} />
       <Route path={PATHS.CONTACT} component={Contact} />
-      <Route path={PATHS.RESOURCE} component={ModalSwitch} />
+      <Route path={PATHS.GALLERY} component={ModalSwitch} />
     </Router>
   );
 }

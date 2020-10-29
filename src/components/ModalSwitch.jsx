@@ -8,7 +8,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import Resource from './Resource';
+import Gallery from './Gallery';
 import PATHS from '../paths.js';
 
 export default function ModalSwitch ({
@@ -51,13 +51,13 @@ export default function ModalSwitch ({
     return (
       <div>
         <Switch location={background || location}>
-          <Route path={PATHS.RESOURCE}>
-            <Resource resource={resource} pics={pics} />
+          <Route path={PATHS.GALLERY}>
+            <Gallery resource={resource} pics={pics} />
           </Route>
-          <Route path={`${PATHS.RESOURCE}/:name`} children={<ImageView />} />
+          <Route path={`${PATHS.GALLERY}/:name`} children={<ImageView />} />
         </Switch>
 
-        {background && <Route path={`${PATHS.RESOURCE}/:name`}><Modal pics={pics} /> </Route>}
+        {background && <Route path={`${PATHS.GALLERY}/:name`}><Modal pics={pics} /> </Route>}
 
       </div>
     );
@@ -84,7 +84,11 @@ function Image ({ id, name }) {
 
   return (
     <div>
-      <img src={`../../../api${url}`} alt={`${name} ${id}`} />
+      <img
+        className='modal-img'
+        src={`../../../api${url}`}
+        alt={`${name} ${id}`}
+      />
     </div>
   );
 }
@@ -104,45 +108,33 @@ function Modal ({ pics }) {
     history.goBack();
   };
 
+  const escape = e => {
+    if (e.keyCode === 27) history.goBack();
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', escape, false);
+
+    return () => {
+      document.removeEventListener('keydown', escape, false);
+    };
+  }, []);
+
   return (
     <div
+      className='modal-container'
       onClick={back}
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'fixed',
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
-        padding: '1rem',
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        zIndex: '2',
-        opacity: 1,
-        animation: '$show .5s ease',
-        overflowX: 'hidden',
-        overflowY: 'auto'
-      }}
-    >
-      <div
-        className='modal'
-        style={{
-          width: '100%',
-          backgroundColor: '#fff',
-          boxShadow: [0, 0, '0.625rem', 'rgba(0, 0, 0, 0.2)'],
-          position: 'relative',
-          padding: '1rem',
+      onKeyDown={escape}
 
-          '@media (min-width: 576px)': {
-            width: '32rem'
-          }
-        }}
-      >
-        <h1>{image.name}</h1>
+    >
+      <div className='modal'>
         <Image id={image.id} name={image.name} />
-        <button type='button' onClick={back}>
-          Zamknij
+        <button
+          className='close'
+          type='button'
+          onClick={back}
+        >
+          x
         </button>
       </div>
     </div>
