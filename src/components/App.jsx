@@ -11,6 +11,7 @@ import Resource from './Resource';
 import PATHS from '../paths';
 
 import '../index.css';
+import ModalSwitch from './ModalSwitch';
 
 function App () {
   const [state, setState] = useState({
@@ -36,7 +37,7 @@ function App () {
       <Route path={PATHS.PRICES} component={Prices} />
       <Route path={PATHS.ABOUT} component={About} />
       <Route path={PATHS.CONTACT} component={Contact} />
-      <Route path={PATHS.RESOURCE} component={Resource} />
+      <Route path={PATHS.RESOURCE} component={ModalSwitch} />
     </Router>
   );
 }
