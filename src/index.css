@@ -1,3 +1,4 @@
+/* common settings */
 * {
     box-sizing: border-box;
     font-family: 'Share';
@@ -11,12 +12,14 @@
     grid-template-columns: 300px 1fr;
 }
 
-/* Navigation.jsx */
-
 a{
     text-decoration: none;
     color: #000;
 }
+
+/* end of common settings */
+
+/* Navigation */
 
 ul{
     list-style-type: none;
@@ -64,18 +67,13 @@ padding-left: 2vw;
     padding-bottom: 1vh;
 }
 
-p{
-    line-height: 120%;
-    
-}
-
 .logo {
     padding-bottom: 2vw;
 }
 
-/* Navigation.jsx */
+/* end of Navigation */
 
-/* Gallery.jsx */
+/* Gallery */
 
 .gallery {
     width: 100%;
@@ -110,9 +108,9 @@ h2 {
     opacity: 0.5;
 }
 
-/* end of Gallery.jsx */
+/* end of Gallery */
 
-/*   ModalSwitch.jsx */
+/*   ModalSwitch */
 
 .modal-container{
     position: fixed;
@@ -183,9 +181,9 @@ h2 {
     left: 1vw;
 }
 
-/*   end of ModalSwitch.jsx */
+/*   end of ModalSwitch */
 
-/* Contact.jsx */
+/* Form */
 
 .contact-content{
     padding: 0 6vw;
@@ -257,7 +255,7 @@ label:last-child{
     background-color: #424f63;
 }
 
-/* end of Contact.jsx */
+/* end of Form */
 
 @media screen and (max-width: 768px) {
     .container{
