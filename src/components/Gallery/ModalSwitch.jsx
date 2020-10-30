@@ -49,7 +49,9 @@ export default function ModalSwitch ({
           <Route path={PATHS.GALLERY}>
             <Gallery resource={resource} pics={pics} />
           </Route>
-          <Route path={`${PATHS.GALLERY}/:name`} children={<ImageView />} />
+          <Route path={`${PATHS.GALLERY}/:name`}>
+            <ImageView resource={resource} />
+          </Route>
         </Switch>
 
         {background &&
