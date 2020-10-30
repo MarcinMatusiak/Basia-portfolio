@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 import Gallery from './Gallery';
-import PATHS from '../paths.js';
+import PATHS from '../../paths.js';
 
 export default function ModalSwitch ({
   match: {
@@ -57,8 +57,10 @@ export default function ModalSwitch ({
           <Route path={`${PATHS.GALLERY}/:name`} children={<ImageView />} />
         </Switch>
 
-        {background && <Route path={`${PATHS.GALLERY}/:name`}><Modal pics={pics} /> </Route>}
-
+        {background &&
+          <Route path={`${PATHS.GALLERY}/:name`}>
+            <Modal pics={pics} />
+          </Route>}
       </div>
     );
   }
@@ -72,7 +74,6 @@ function ImageView ({ resource }) {
 
   return (
     <div>
-      <h2>{image.name}</h2>
       <Image id={image.id} name={image.name} />
     </div>
   );
@@ -80,13 +81,13 @@ function ImageView ({ resource }) {
 
 function Image ({ id, name }) {
   const { url } = useRouteMatch();
-  console.log(url);
+  const parentUrl = (url.substring(0, url.lastIndexOf('/')));
 
   return (
     <div>
       <img
         className='modal-img'
-        src={`../../../api${url}`}
+        src={`../../../api${parentUrl}/${name}`}
         alt={`${name} ${id}`}
       />
     </div>
@@ -96,12 +97,10 @@ function Image ({ id, name }) {
 function Modal ({ pics }) {
   const history = useHistory();
   const { name } = useParams();
-  const image = pics.find(obj => obj.name === name);
+  const [isDisplayed, setIsDisplayed] = useState(false);
+  const [image, setImage] = useState(pics.find(obj => obj.name === name));
 
   if (!image) return null;
-
-  console.log(name);
-  console.log(image);
 
   const back = e => {
     e.stopPropagation();
@@ -109,7 +108,19 @@ function Modal ({ pics }) {
   };
 
   const escape = e => {
-    if (e.keyCode === 27) history.goBack();
+    if (e.keyCode === 27) {
+      history.goBack();
+    };
+  };
+
+  const increase = (e) => {
+    e.stopPropagation();
+    setImage((pics.indexOf(image) === pics.length - 1) ? pics[0] : pics[pics.indexOf(image) + 1]);
+  };
+
+  const decrease = (e) => {
+    e.stopPropagation();
+    setImage((pics.indexOf(image) === 0) ? pics[pics.length - 1] : pics[pics.indexOf(image) - 1]);
   };
 
   useEffect(() => {
@@ -125,17 +136,38 @@ function Modal ({ pics }) {
       className='modal-container'
       onClick={back}
       onKeyDown={escape}
-
     >
-      <div className='modal'>
+      <div
+        className='modal'
+        onMouseEnter={() => setIsDisplayed(true)}
+        onMouseLeave={() => setIsDisplayed(false)}
+      >
         <Image id={image.id} name={image.name} />
         <button
-          className='close'
+          className='img-button close'
           type='button'
           onClick={back}
         >
           x
         </button>
+        {isDisplayed && (
+          <>
+            <button
+              className='img-button arrow-right'
+              type='button'
+              onClick={increase}
+            >
+              {'>'}
+            </button>
+            <button
+              className='img-button arrow-left'
+              type='button'
+              onClick={decrease}
+            >
+              {'<'}
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Navigation from './Navigation';
+import Navigation from './Navigation/Navigation';
 import About from './About';
-import Contact from './Contact';
+import Contact from './Contact/Contact';
 import Home from './Home';
 import Prices from './Prices';
 import PATHS from '../paths';
 
 import '../index.css';
-import ModalSwitch from './ModalSwitch';
+import ModalSwitch from './Gallery/ModalSwitch';
 
 function App () {
   const [state, setState] = useState({

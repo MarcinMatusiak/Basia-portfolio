@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Route, Link } from 'react-router-dom';
 import Categories from './Categories';
-import PATHS from '../paths';
-import logo from '../img/logo.png';
+import PATHS from '../../paths';
+import logo from '../../img/logo.png';
 
 export default function Navigation () {
   return (

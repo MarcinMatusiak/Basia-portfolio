@@ -11,6 +11,8 @@
     grid-template-columns: 300px 1fr;
 }
 
+/* Navigation.jsx */
+
 a{
     text-decoration: none;
     color: #000;
@@ -71,6 +73,10 @@ p{
     padding-bottom: 2vw;
 }
 
+/* Navigation.jsx */
+
+/* Gallery.jsx */
+
 .gallery {
     width: 100%;
     column-count: 2;
@@ -103,6 +109,83 @@ h2 {
 .italic:hover {
     opacity: 0.5;
 }
+
+/* end of Gallery.jsx */
+
+/*   ModalSwitch.jsx */
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 1vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    opacity: 1;
+    animation: open .5s ease;
+}
+
+@keyframes open {
+    from {
+        display: none;
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+    padding: 1vw;
+}
+
+.modal-img{
+    max-width: 96vw;
+    max-height: 96vh;
+}
+
+.img-button {
+    position: fixed;
+    padding: 8px 20px;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    background-color: #34363a;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+.img-button:hover{
+    background-color: #424f63;
+}
+
+.close{
+    right: 1vw;
+    top: 1vw;
+}
+
+.arrow-right{
+    top: 50%;
+    right: 1vw;
+}
+
+.arrow-left{
+    top: 50%;
+    left: 1vw;
+}
+
+/*   end of ModalSwitch.jsx */
+
+/* Contact.jsx */
 
 .contact-content{
     padding: 0 6vw;
@@ -159,84 +242,22 @@ label:last-child{
 }
 
 .btn {
-    font-size: 16px;
-    color: #fff;
-    background-color: #777;
-    text-transform: uppercase;
-    border: 1px solid #000;
-    border-radius: 10px;;
-    width: 90px;
-    height: 30px;
-    align-self: flex-end;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-/*   ModalSwitch.jsx */
-
-.modal-container{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    padding: 1vw;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    opacity: 1;
-    overflow-x: hidden;
-    overflow-y: auto;
-    animation: example .5s ease;
-}
-
-@keyframes example {
-    from {
-        display: none;
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-    }
-}
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
-    padding: 1vw;
-}
-
-.modal-img{
-    max-width: 96vw;
-    max-height: 96vh;
-}
-
-.close {
-    position: fixed;
     padding: 8px 20px;
-    right: 1vw;
-    top: 1vw;
-    z-index: 3;
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 800;
     color: #fff;
     background-color: #34363a;
     outline: none;
     border: none;
+    border-radius: 12px;
     box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.2);
 }
 
-.close:hover{
+.btn:hover {
     background-color: #424f63;
 }
 
-/*   end of ModalSwitch.jsx */
-
+/* end of Contact.jsx */
 
 @media screen and (max-width: 768px) {
     .container{
