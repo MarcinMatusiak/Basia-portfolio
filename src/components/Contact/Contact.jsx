@@ -62,5 +62,11 @@ export default function Contact () {
     });
   }
 
-  return (content && state && <Form content={content} state={state} handleChange={handleChange} handleSubmit={handleSubmit} />);
+  return (content && state &&
+    <Form
+      content={content}
+      state={state}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />);
 }
