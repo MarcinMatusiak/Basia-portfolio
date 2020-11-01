@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom';
 
 import Image from './Image';
 
-export default function ImageView ({ resource }) {
+export default function ImageView ({ pics }) {
   const { name } = useParams();
+  const image = pics.find(obj => obj.name === name);
   console.log(name);
-  const image = resource.find(obj => obj.name === name);
 
   if (!image) return <div>Image not found</div>;
 

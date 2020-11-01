@@ -37,7 +37,7 @@ export default function ModalSwitch ({
           setError(error);
         }
       );
-  }, [resourceId]);
+  }, [resourceId, categoryId]);
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
@@ -46,11 +46,11 @@ export default function ModalSwitch ({
     return (
       <div>
         <Switch location={background || location}>
-          <Route path={PATHS.GALLERY}>
+          <Route exact path={PATHS.GALLERY}>
             <Gallery resource={resource} pics={pics} />
           </Route>
           <Route path={`${PATHS.GALLERY}/:name`}>
-            <ImageView resource={resource} />
+            <ImageView pics={pics} />
           </Route>
         </Switch>
 

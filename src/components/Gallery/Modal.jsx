@@ -9,15 +9,13 @@ export default function Modal ({ pics }) {
   const [isDisplayed, setIsDisplayed] = useState(false);
   const [image, setImage] = useState(pics.find(obj => obj.name === name));
 
-  if (!image) return null;
-
   useEffect(() => {
-    document.addEventListener('keydown', escape, false);
+    window.addEventListener('keydown', escape, false);
 
     return () => {
-      document.removeEventListener('keydown', escape, false);
+      window.removeEventListener('keydown', escape, false);
     };
-  }, []);
+  });
 
   const back = e => {
     e.stopPropagation();
@@ -26,6 +24,7 @@ export default function Modal ({ pics }) {
 
   const escape = e => {
     if (e.keyCode === 27) {
+      e.stopPropagation();
       history.goBack();
     };
   };

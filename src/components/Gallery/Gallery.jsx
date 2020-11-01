@@ -18,7 +18,10 @@ export default function Gallery ({ resource, pics }) {
                 state: { background: location }
               }}
             >
-              <img src={`../../api${url}/${pic.name}`} alt={`${resource.name} ${pic.id}`} />
+              <img
+                src={`../../api${url}/${pic.name}`}
+                alt={`${resource.name} ${pic.id}`}
+              />
             </Link>
           </div>
         ))}

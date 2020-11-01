@@ -10,6 +10,8 @@ module.exports = {
     publicPath: '/'
   },
 
+  devtool: 'inline-source-map',
+
   resolve: {
     extensions: ['.js', '.jsx']
   },
@@ -22,6 +24,18 @@ module.exports = {
         use: [
           {
             loader: 'file-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[contenthash].[ext]',
+              outputPath: 'fonts/'
+            }
           }
         ]
       },
@@ -49,7 +63,9 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: {
+      disableDotRule: true
+    },
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8080,
