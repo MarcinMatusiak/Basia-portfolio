@@ -1,7 +1,7 @@
 module.exports = [
   {
     name: 'Sesje noworodkowe',
-    id: 'sesje_noworodkowe',
+    id: 'sesje-noworodkowe',
     resources: [
       {
         name: 'Marysia',
@@ -15,7 +15,7 @@ module.exports = [
   },
   {
     name: 'Sesje dziecięce',
-    id: 'sesje_dzieciece',
+    id: 'sesje-dzieciece',
     resources: [
       {
         name: 'Mikołaj',

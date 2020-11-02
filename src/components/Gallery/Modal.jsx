@@ -31,12 +31,20 @@ export default function Modal ({ pics }) {
 
   const increase = (e) => {
     e.stopPropagation();
-    setImage((pics.indexOf(image) === pics.length - 1) ? pics[0] : pics[pics.indexOf(image) + 1]);
+    setImage(
+      (pics.indexOf(image) === pics.length - 1)
+        ? pics[0]
+        : pics[pics.indexOf(image) + 1]
+    );
   };
 
   const decrease = (e) => {
     e.stopPropagation();
-    setImage((pics.indexOf(image) === 0) ? pics[pics.length - 1] : pics[pics.indexOf(image) - 1]);
+    setImage(
+      (pics.indexOf(image) === 0)
+        ? pics[pics.length - 1]
+        : pics[pics.indexOf(image) - 1]
+    );
   };
 
   return (

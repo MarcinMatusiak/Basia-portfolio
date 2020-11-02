@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React /* { useState }  */ from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -13,21 +13,24 @@ import '../index.css';
 import ModalSwitch from './Gallery/ModalSwitch';
 
 function App () {
-  const [state, setState] = useState({
-    data: 'placeholder'
-  });
+  /* API call boilerplate
 
-  useEffect(() => {
-    fetch('/api')
-      .then(response => {
-        if (response.status !== 200) {
-          throw Error(response.json().message);
-        }
-        return response.json();
-      })
-      .then(res => setState({ data: res.message }))
-      .catch(err => console.log(err));
-  }, []);
+    const [state, setState] = useState({
+        data: 'placeholder'
+      });
+
+      useEffect(() => {
+        fetch('/api')
+          .then(response => {
+            if (response.status !== 200) {
+              throw Error(response.json().message);
+            }
+            return response.json();
+          })
+          .then(res => setState({ data: res.message }))
+          .catch(err => console.log(err));
+      }, []);
+  */
 
   return (
     <Router>
