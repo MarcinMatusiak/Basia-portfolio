@@ -1,6 +1,6 @@
 import React /* { useState }  */ from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Navigation from './Navigation/Navigation';
 import About from './About';
