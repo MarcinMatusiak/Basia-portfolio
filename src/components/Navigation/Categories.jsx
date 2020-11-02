@@ -12,7 +12,9 @@ export default function Categories () {
 
   return (
     <ul>
-      {categories.map(category => <Category {...category} key={category.id} />)}
+      {categories.map(category =>
+        <Category {...category} key={category.id} />
+      )}
     </ul>
   );
 };

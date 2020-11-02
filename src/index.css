@@ -190,6 +190,21 @@ padding-left: 2vw;
 
 /*   end of ModalSwitch */
 
+/* ImageView */
+.image-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-view  img{
+    flex: 1 1 auto;
+
+}
+
+/* end of ImageView */
+
+
 /* Form */
 
 .contact-content{
