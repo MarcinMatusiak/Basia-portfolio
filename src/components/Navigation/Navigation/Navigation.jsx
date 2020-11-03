@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
 import { Link } from 'react-router-dom';
-import Categories from './Categories';
-import PATHS from '../../paths';
-import logo from '../../img/logo.png';
+
+import { StyledNavigation } from './Navigation.styled';
+
+import Categories from '../Categories';
+import PATHS from '../../../paths';
 
 export default function Navigation () {
   const [isClicked, setIsClicked] = useState(false);
@@ -13,11 +14,8 @@ export default function Navigation () {
   };
 
   return (
-    <section className='navigation'>
-      <nav>
-        <Link to={PATHS.HOME}>
-          <img src={logo} alt='logo' className='logo' />
-        </Link>
+    <StyledNavigation>
+      <section className='navigation'>
         <ul>
           <li className='nav-sup'>
             <Link to={PATHS.HOME}>
@@ -46,8 +44,9 @@ export default function Navigation () {
             </Link>
           </li>
         </ul>
-      </nav>
-    </section>
+
+      </section>
+    </StyledNavigation>
 
   );
 };
