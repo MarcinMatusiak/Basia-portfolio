@@ -125,15 +125,18 @@ export default function Form ({ content, state, handleChange, handleSubmit }) {
               <a
                 className='italic'
                 href={`tel:${content.phone}`}
-              >{content.phone}
+              >
+                {content.phone}
               </a>
             </p>
-            <a
-              className='italic'
-              href={`mailto:${content.email}`}
-            >{content.email}
-            </a>
-            <p />
+            <p>
+              <a
+                className='italic'
+                href={`mailto:${content.email}`}
+              >
+                {content.email}
+              </a>
+            </p>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledBurger = styled.button`
+  background: ${({ theme }) => theme.primaryLight};
   position: sticky;
   margin: 4vw 0 0 4vw;
   display: flex;
@@ -12,12 +13,8 @@ export const StyledBurger = styled.button`
   cursor: pointer;
   padding: 0;
   z-index: 2;
-  
-  &:focus {
-    outline: none;
-  }
-  
-  div {
+
+  span {
     width: 2rem;
     height: 0.25rem;
     background: ${({ theme }) => theme.primaryDark};
@@ -32,7 +29,7 @@ export const StyledBurger = styled.button`
 
     :nth-child(2) {
       opacity: ${({ open }) => open ? '0' : '1'};
-      transform: ${({ open }) => open ? 'translateX(20px)' : 'translateX(0)'};
+      transform: ${({ open }) => open ? 'translateX(-20px)' : 'translateX(0)'};
     }
 
     :nth-child(3) {

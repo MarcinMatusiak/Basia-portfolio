@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledMobileHorizontalNavigation = styled.nav`
+export const StyledMobileHorizontalNavigation = styled.div`
   position: absolute;
   top: 0px;
   width: 100%;
@@ -10,13 +10,16 @@ export const StyledMobileHorizontalNavigation = styled.nav`
   .navigation{
   
   padding-top: 4vw;
-  padding-left: calc(6vh + 32px);
+  padding-left: calc(1vw + 52px);
   padding-right: 2vw;
   background-color: ${({ theme }) => theme.primaryLight};
     >ul{
         display:flex;
         flex-direction: row;
         justify-content: space-between;
+    }
+    ul {
+      line-height: 2rem;
     }
   }
 

@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
-export const StyledMobileVerticalNavigation = styled.nav`
+export const StyledMobileVerticalNavigation = styled.div`
   position: absolute;
   transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => open ? 'translateY(-32px)' : 'translateY(-200%)'};
+  transform: ${({ open }) => open ? 'translateY(-45px)' : 'translateY(-200%)'};
+  
 
   .navigation{
-  width: 100vw;
+  width: calc(100vw - 20px);
   background-color: ${({ theme }) => theme.primaryLight};
   }
 
   .nav-sup{
-    padding-left: 10vw;
+    padding-left: calc(52px + 2vw);
     padding-bottom: 1vw;
   }
+  
 `;

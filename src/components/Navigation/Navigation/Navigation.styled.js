@@ -15,9 +15,12 @@ export const StyledNavigation = styled.nav`
       ul{
         flex-direction: column;
         font-size: 1.1rem;
-        line-height: 1.4rem;
         padding-left: 1vw;
         text-transform: none;
+
+        li{
+          padding: 1px;
+        }
 
         ul{
             font-size: 1rem;
@@ -35,10 +38,25 @@ export const StyledNavigation = styled.nav`
     padding-bottom: 1vh;
 }
 
-a {
-    transition: color 0.3s linear;
+.a-like-btn {
+  font: inherit;
+  border: none;
+  text-transform: inherit;
+  background-color: ${({ theme }) => theme.primaryLight};
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  color: ${({ theme }) => theme.primaryDark};
+}
+
+  a, .a-like-btn {
+    transition: color 0.3s ease-out;
     &:hover {
       color: ${({ theme }) => theme.primaryHover};
+    }
+
+    &:focus{
+      outline: 1px solid ${({ theme }) => theme.primaryHover};
     }
   }
 `;

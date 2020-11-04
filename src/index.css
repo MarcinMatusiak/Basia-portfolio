@@ -23,14 +23,17 @@ h2 {
 }
 
 .logo {
-    width: 300px;
-    padding-bottom: 2vw;
+    width: calc(300px - 2vw);
+    padding: 1vw 1vw 2vw 0;
 }
 
 .uppercase {
     text-transform: uppercase;
 }
 
+input:focus, textarea:focus, button:focus, a:focus {
+    outline: 1px solid #424f63;
+}
 /* end of common settings */
 
 /* Navigation */
@@ -173,6 +176,7 @@ form{
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2vw 0;
+    margin: 0;
     
 }
 
@@ -211,6 +215,14 @@ label:last-child{
     display: inline;
 }
 
+.content-item p{
+    margin: 4px;
+}
+
+form .btn {
+    margin-top: 4px;
+}
+
 .btn {
     padding: 8px 20px;
     font-size: 1.2rem;
@@ -230,19 +242,6 @@ label:last-child{
 /* end of Form */
 
 @media screen and (max-width: 768px) {
-
-    /* common settings for small screen */
-
-    .logo {
-        width: 200px;
-    }
-
-    h2 {
-        padding-right: 6vw;
-    }
-
-    /* end of common settings for small screen */
-
 
     /* Gallery for small screen */
     

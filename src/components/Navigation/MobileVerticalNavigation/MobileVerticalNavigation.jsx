@@ -4,10 +4,20 @@ import { StyledMobileVerticalNavigation } from './MobileVerticalNavigation.style
 
 import Navigation from '../Navigation/Navigation.jsx';
 
-export default function MobileVerticalNavigation ({ open }) {
+export default function MobileVerticalNavigation ({ open, ...props }) {
+  const isHidden = !!open;
+
   return (
-    <StyledMobileVerticalNavigation open={open}>
-      <Navigation />
+    <StyledMobileVerticalNavigation
+      open={open}
+      aria-hidden={!isHidden}
+      {...props}
+    >
+      <Navigation
+        open={open}
+        aria-hidden={!isHidden}
+        {...props}
+      />
     </StyledMobileVerticalNavigation>
   );
 };
